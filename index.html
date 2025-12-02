@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crescent Magnolia Holdings</title>
-  <meta name="description" content="Strategic holding company focused on operational excellence and asset management.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  
-<script type="text/javascript">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crescent Magnolia Holdings</title>
+    <meta name="description" content="Operator-led holding company focused on acquisitions, applied AI, and long-term stewardship.">
+
+  <script type="text/javascript">
   window._mfq = window._mfq || [];
   (function() {
     var mf = document.createElement("script");
@@ -17,63 +16,503 @@
   })();
 </script>
 
-  <style>
-    :root { --slate: #0f172a; --gray: #f1f5f9; --accent: #64748b; --white: #ffffff; }
-    body { margin:0; font-family:'Inter',sans-serif; background:var(--gray); color:var(--slate); line-height:1.6; }
-    header { background:var(--slate); color:var(--white); text-align:center; padding:4rem 1rem; }
-    h1 { margin:0; font-size:2.5rem; font-weight:700; }
-    .tagline { font-size:1.125rem; margin-top:0.5rem; opacity:0.9; font-weight:400; }
-    main { max-width:800px; margin:2rem auto; padding:0 1rem; }
-    section { background:var(--white); padding:2rem; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.05); margin-bottom:2rem; }
-    h2 { font-size:1.5rem; margin-top:0; border-bottom:2px solid var(--accent); padding-bottom:0.5rem; }
-    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; margin-top:1rem; }
-    .service-item { padding:1rem; background:var(--gray); border-radius:4px; }
-    form { display:grid; gap:1rem; }
-    input, textarea { padding:0.75rem; border:1px solid var(--accent); border-radius:4px; font-size:1rem; font-family:inherit; }
-    button { background:var(--slate); color:var(--white); padding:0.75rem 1.5rem; border:none; border-radius:4px; font-size:1rem; cursor:pointer; font-weight:600; }
-    button:hover { background:#1e293b; }
-    footer { text-align:center; padding:2rem; color:var(--accent); font-size:0.875rem; border-top:1px solid var(--gray); }
-    @media (max-width:640px) { h1 { font-size:2rem; } header { padding:2rem 1rem; } }
-  </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #0B0F19; /* Deep Charcoal/Navy */
+            --card-bg: #131A26;
+            --text-main: #E2E8F0;
+            --text-muted: #94A3B8;
+            --accent-gold: #C5A065;
+            --accent-gold-hover: #D4AF37;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --spacing-section: 6rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: white;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .text-gold {
+            color: var(--accent-gold);
+        }
+
+        .section-padding {
+            padding: var(--spacing-section) 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 2rem 0;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            /* Background from previous version */
+            background: linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.95)), url('https://images.unsplash.com/photo-1552083974-186346191183?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            padding: 0 1rem;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            border-top: 1px solid rgba(197, 160, 101, 0.3);
+            display: inline-block;
+            padding-top: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* --- WHAT WE DO (ICONS) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(197, 160, 101, 0.2);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem auto;
+            color: var(--accent-gold);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            letter-spacing: 0.02em;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* --- FOCUS AREAS --- */
+        .focus-section {
+            background-color: #0f131f; 
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header .divider {
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-gold);
+            margin: 0 auto;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .focus-item {
+            padding-right: 1rem;
+        }
+
+        .focus-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+        }
+
+        .focus-item h3::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-gold);
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+
+        .focus-item p {
+            color: var(--text-muted);
+            font-weight: 300;
+            padding-left: 23px;
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details {
+            margin-top: 3rem; 
+            color: var(--text-muted); 
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-control {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 1rem 0;
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-bottom: 1px solid var(--accent-gold);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            background-color: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 1rem 3rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-color);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-padding {
+                padding: 4rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Crescent Magnolia Holdings</h1>
-    <p class="tagline">Strategic investments and operational oversight for long-term value creation.</p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Our Focus</h2>
-      <p>Delivering integrated solutions across asset management, compliance, and growth strategies.</p>
-      <div class="services">
-        <div class="service-item">
-          <strong>Asset Protection</strong><br>Structured frameworks for risk mitigation and portfolio stability.
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">Crescent Magnolia Holdings</div>
         </div>
-        <div class="service-item">
-          <strong>Operational Scaling</strong><br>Process optimization and team alignment for efficient expansion.
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in-up">
+            <h1>Stewardship Through Real Businesses. <br><span class="text-gold" style="font-style: italic;">Quietly Built. Intentionally Held.</span></h1>
+            <div class="hero-tagline">
+                Operator-led acquisitions &bull; Applied AI systems &bull; Long-term ownership
+            </div>
         </div>
-        <div class="service-item">
-          <strong>Compliance Advisory</strong><br>Navigating regulatory landscapes with precision and foresight.
-        </div>
-      </div>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Reach out to discuss opportunities or partnerships.</p>
-      <form action="https://formspree.io/f/YOUR-FORMSPREE-ID" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="_replyto" placeholder="Your Email" required>
-        <input type="text" name="subject" placeholder="Subject (optional)">
-        <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </section>
-  </main>
+    <!-- What We Do -->
+    <section class="section-padding" id="approach">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2>Our Approach</h2>
+                <div class="divider"></div>
+            </div>
 
-  <footer>
-    &copy; 2025 Crescent Magnolia Holdings. All rights reserved.
-  </footer>
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card fade-in-up">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                        </svg>
+                    </div>
+                    <h3>Strategic Acquisition</h3>
+                    <p>We acquire essential, cash-flowing businesses with strong fundamentals and clear opportunities for operational improvement.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card fade-in-up">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                        </svg>
+                    </div>
+                    <h3>Hands-On Operations</h3>
+                    <p>We build durable systems. Using modern process design and applied AI, we upgrade technology, workflows, and infrastructure inside businesses that deserve better tools and better leadership.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card fade-in-up">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                        </svg>
+                    </div>
+                    <h3>Risk-First Discipline</h3>
+                    <p>We prioritize resiliency over speculation. Clear governance, conservative leverage, and operational transparency protect what matters most—enduring cash flow.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card fade-in-up">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.319-.506 1.878l-.237.263c-.12.133-.27.247-.438.332l-.97.484c-.554.276-.957.813-1.084 1.43l-.127.61c-.463 2.212 1.675 4.318 3.868 3.518.575-.21.99-.711 1.088-1.31l.053-.32a.75.75 0 01.313-.497 10.15 10.15 0 002.43-2.33 1.125 1.125 0 00-1.1-1.635l-.26.011a.75.75 0 01-.259-.04.75.75 0 00-.854.34l-.066.106a.75.75 0 01-.645.353h-.15a.75.75 0 00-.528.219l-.337.337a.75.75 0 01-.53.22h-.215a.75.75 0 01-.525-.224l-.15-.15a1.875 1.875 0 01-.363-1.92l.142-.313a2.25 2.25 0 00-.094-2.07l-.148-.255a.75.75 0 00-1.002-.274l-.16.08a.75.75 0 01-.73 0l-.132-.066a.75.75 0 00-.916.273l-.22.336a.75.75 0 01-.647.348H7.39a.75.75 0 01-.59-.28l-.133-.166a.75.75 0 00-.83-.244l-.24.08a.75.75 0 01-.735-.098l-.168-.112a2.25 2.25 0 01-.75-2.455l.233-.865a.75.75 0 00-.317-.83l-.336-.215a4.5 4.5 0 01-1.933-4.524 10.963 10.963 0 012.308-5.111A11.026 11.026 0 0112.75 3.03z" />
+                        </svg>
+                    </div>
+                    <h3>Selective, Systemic Growth</h3>
+                    <p>We expand only where we hold an operational or technological edge, focusing on essential services, tech-enabled operations, and commercial assets that benefit from modern tooling and disciplined execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Focus Areas -->
+    <section class="section-padding focus-section">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2>Portfolio Focus</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="focus-grid">
+                <div class="focus-item fade-in-up">
+                    <h3>Small Business Operations</h3>
+                    <p>We acquire and operate stable, service-based companies with strong customer relationships and room for meaningful value creation.</p>
+                </div>
+                <div class="focus-item fade-in-up">
+                    <h3>Applied AI & Operational Infrastructure</h3>
+                    <p>We build and deploy practical AI systems that enhance decision-making, reduce operational burden, and modernize legacy industries. Our consulting arm extends this capability to select clients.</p>
+                </div>
+                <div class="focus-item fade-in-up">
+                    <h3>Commercial Assets</h3>
+                    <p>We hold and develop commercial properties that support business operations and long-term stability, prioritizing simplicity, cash flow, and strategic utility rather than speculative real estate activity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-info fade-in-up">
+                    <h2>Inquiries</h2>
+                    <p>Crescent Magnolia Holdings is a privately held operator group and holding company. We work discreetly with business owners, advisors, and partners on acquisitions, operational consulting, and applied AI initiatives.</p>
+                    
+                    <div class="contact-details">
+                        <p><strong>Headquarters</strong><br>
+                        Gulf Coast Region (By Appointment Only)</p>
+                        
+                        <p><strong>General Inquiries</strong><br>
+                        contact@crescentmagnolia.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper fade-in-up">
+                    <!-- Update the action URL with your Formspree ID -->
+                    <form action="https://formspree.io/f/YOUR-ID" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" class="form-control" placeholder="Phone Number (Optional)">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" placeholder="Message or Proposal Details" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Crescent Magnolia Holdings. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Minimal JS for Scroll Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
